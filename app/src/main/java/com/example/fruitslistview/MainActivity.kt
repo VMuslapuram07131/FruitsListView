@@ -63,6 +63,10 @@ class MainActivity() : AppCompatActivity(), Parcelable {
         val adapter:playeradapter = playeradapter(this, players, player_image)
         listView.adapter = adapter
 
+        listView.setOnItemClickListener { adapterView, view, i, l ->
+            Snackbar.make(view, "clicked on ${players[i]}", Snackbar.LENGTH_LONG).show()
+        }
+
     }
 
     class playeradapter(val context: Context, val player:Array<String>, val player_image:Array<Int>):BaseAdapter()
